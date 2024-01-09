@@ -1,6 +1,7 @@
 
 
-// 1er desafio backend 
+// 1er desafio backend   
+// alumno : LEZCANO JAVIER 
 
 class ProductManager {
 
@@ -21,7 +22,7 @@ class ProductManager {
 
 
         const newproductos = {
-            id: ++ProductManager.ultid,
+            id: ++ProductManager.ultid,  // se incrementa en 1 la variable ultid y se la asigna al campo id
             title,
             description,
             price,
@@ -41,7 +42,7 @@ class ProductManager {
     }
 
     getProductsById(id){
-           const producto = this.prod.find(item => item.id ===id);
+           const producto = this.prod.find(item => item.id ===id); //con el metodo find ,busca el elemento por su id
            if(!producto) {
             console.log("Not Found");
            } else {
@@ -56,27 +57,42 @@ class ProductManager {
 
 // testing
 
-const vinos = new ProductManager;
-const cervezas = new ProductManager;
+const productos1 = new ProductManager;  // se crea una instancia de ProductManager
+
+const productos2 = new ProductManager;  // se crea otra instancia productos2
 
 
-//console.log(vinos.getProducts());
+//console.log(producto1.getProducts());   // se llama al metodo getProduts con el array vacio
 
 //se llama al metodo addProduct con los campos:
-// title: “los pasos”
+// title: “vinos”
 // description:”tinto malbec”
 // price:200,
 // thumbnail:”Sin imagen”
 // code:”abc123”,
 // stock:25
 
-//vinos.addProduct("los pasos","tinto malbec", 2000, "sin imagen", "abc123", 25);
-cervezas.addProduct("barba roja","scotch", 1500, "sin imagen", "abc125",25);
-//console.log(vinos.getProducts());
+// agregar un producto al array productos1, generando un id autoincrementable
+//productos1.addProduct("los pasos","tinto malbec", 2000, "sin imagen", "abc123", 25); 
 
 
-console.log(cervezas.getProductsById(3));
+//agregar un  producto al array productos2, con su id autoincrementable y unico
+productos2.addProduct("barba roja","scotch", 1500, "sin imagen", "abc125",25); 
 
 
-//console.log(cervezas.getProductsById(1));
-console.log(cervezas.getProductsById(3));
+//console.log(productos1.getProducts());  // muestra los productos del array productos1
+
+
+//console.log(productos2.getProductsById());  //  muestra los productos del array produtos2
+
+
+//console.log(productos1.getProductsById(1)); // devuelve el producto con id = 1
+
+//console.log(productos2.getProductsById(3));   // devuelve "NOT FOUND", al no existir ese producto con id=3
+
+// falta completar el campo stock, devuelve el msj "todos los campos son obligatorios  "
+// devuelve tambien "el codigo debe ser unico", esta repetido el campo code
+productos2.addProduct("barba roja","scotch", 1500, "sin imagen", "abc125");
+
+
+   
